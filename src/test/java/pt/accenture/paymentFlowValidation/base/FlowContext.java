@@ -7,7 +7,7 @@ public class FlowContext {
 
 	private SharedDriver sharedDriver;
 	private PageObjectManager pageObjectManager;
-
+	
 	public FlowContext() {
 		pageObjectManager = new PageObjectManager(getSharedDriver().getDriver());
 	}
@@ -25,5 +25,4 @@ public class FlowContext {
 	public PageObjectManager getPageObjectManager() {
 		return pageObjectManager;
 	}
-
 }

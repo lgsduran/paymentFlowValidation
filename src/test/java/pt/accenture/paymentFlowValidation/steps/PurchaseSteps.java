@@ -112,7 +112,8 @@ public class PurchaseSteps {
 
 	@Then("the Order Id is displayed")
 	public void the_order_id_is_displayed() {
-		String text = this.context.getSharedDriver().getDriver().findElement(By.cssSelector(".sweet-alert p"))
+		var text = this.context.getSharedDriver()
+				.getDriver().findElement(By.cssSelector(".sweet-alert p"))
 				.getText();
 		product.setPurchase(text);
 		String id = StringUtils.substringBetween(text, "Id:", "Amount:").trim();
@@ -128,15 +129,15 @@ public class PurchaseSteps {
 
 	@And("The displayed name is equal to the mocked information")
 	public void the_displayed_name_is_equal_to_the_mocked_information() {
-		String client = product.getPurchase();
-		String resultClient = StringUtils.substringBetween(client, "Name:", "Date").trim();
+		var client = product.getPurchase();
+		var resultClient = StringUtils.substringBetween(client, "Name:", "Date").trim();
 		softAssertions.assertThat(product.getClient()).isEqualToIgnoringCase(resultClient);
 	}
 
 	@Then("the credit card information is needed to complete the order")
 	public void the_credit_card_information_is_needed_to_complete_the_order() {
 		try {
-			String alertText = placeOrderPage.alertTextValidation();
+			var alertText = placeOrderPage.alertTextValidation();
 			softAssertions.assertThat(alertText).isBlank();
 		} catch (UnhandledAlertException e) {
 			e.fillInStackTrace();

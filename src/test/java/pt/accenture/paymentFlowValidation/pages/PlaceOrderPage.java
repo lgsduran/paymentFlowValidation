@@ -2,15 +2,17 @@ package pt.accenture.paymentFlowValidation.pages;
 
 import static java.lang.String.format;
 import static java.lang.String.valueOf;
+import static java.time.Duration.ofSeconds;
 import static org.openqa.selenium.By.cssSelector;
 import static org.openqa.selenium.By.id;
 import static org.openqa.selenium.By.xpath;
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfElementsToBe;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import pt.accenture.paymentFlowValidation.selenium.SeleniumFunctions;
 
@@ -25,12 +27,14 @@ public class PlaceOrderPage {
 	}
 
 	public void clickOnPlaceOrder() {
-		sf.getWaitHelper().waitFor();
+		sf.getWait()
+			.withTimeout(ofSeconds(20))
+			.until(numberOfElementsToBe(cssSelector("#tbodyid tr"), 1));
 		sf.getElement(cssSelector("#page-wrapper button")).click();
 	}
 
 	public void insertName(String name) {
-		sf.getWait().until(ExpectedConditions.visibilityOf(sf.getElement(id("name")))).sendKeys(name);
+		sf.getWait().until(visibilityOf(sf.getElement(id("name")))).sendKeys(name);
 	}
 
 	public void insertCountry(String country) {
@@ -54,16 +58,14 @@ public class PlaceOrderPage {
 	}
 
 	public void submitForm() {
-		sf.getWait()
-		.until(elementToBeClickable(xpath(format("//*[text()='%s']", "Purchase"))))
-		.click();
+		sf.getWait().until(elementToBeClickable(xpath(format("//*[text()='%s']", "Purchase")))).click();
 	}
 
 	public String alertTextValidation() {
 		Alert alert = sf.getWait().until(alertIsPresent());
 		var text = alert.getText().trim();
 		alert.accept();
-		return text;		
+		return text;
 	}
 
 }

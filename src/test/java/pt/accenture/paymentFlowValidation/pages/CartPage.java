@@ -29,7 +29,7 @@ public class CartPage {
 	public void goToCartPage() {
 		Alert alert = sf.getWait().until(alertIsPresent());
 		alert.accept();
-		sf.getWaitHelper().waitFor();
+		sf.waitForPage();
 		sf.getElement(xpath(format("//*[text()='%s']", "Cart"))).click();
 	}
 }

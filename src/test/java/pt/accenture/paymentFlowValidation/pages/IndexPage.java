@@ -19,12 +19,12 @@ public class IndexPage {
 	}
 
 	public boolean isStorePageOnLine() {
-		sf.getWaitHelper().waitFor();
+		sf.waitForPage();
 		return sf.getElement(id("nava")).isDisplayed();		
 	}
 
 	public void goToSection(String section) {
-		sf.getWaitHelper().waitFor();
+		sf.waitForPage();
 		sf.getElement(xpath(format("//*[text()='%s']", section))).click();
 	}
 

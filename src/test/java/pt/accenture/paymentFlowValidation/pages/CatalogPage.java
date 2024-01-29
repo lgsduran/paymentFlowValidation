@@ -21,7 +21,7 @@ public class CatalogPage {
 	}
 
 	public void selectProduct(String product) {
-		sf.getWaitHelper().waitFor();
+		sf.waitForPage();
 		WebElement body = sf.getElement(id("tbodyid"));
 		List<WebElement> articles = body.findElements(cssSelector("h4"));
 		for (WebElement article : articles) {
