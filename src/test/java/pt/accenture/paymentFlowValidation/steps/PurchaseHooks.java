@@ -33,7 +33,7 @@ public class PurchaseHooks {
 	public void afterScenario(Scenario scenario) {
 		var driver = this.context.getSharedDriver().getDriver();
 		try {
-			if (scenario.isFailed())
+			//if (scenario.isFailed())
 				captureScreenshot(driver, scenario.getName());
 		} finally {
 			driver.close();
