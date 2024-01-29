@@ -1,4 +1,4 @@
-#Author: lgsduran@gmail.com
+#Author: Luiz Duran <lgsduran@gmail.com>
 @order
 Feature: Purchase confirmation
   

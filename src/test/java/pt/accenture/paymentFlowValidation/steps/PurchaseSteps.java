@@ -136,12 +136,8 @@ public class PurchaseSteps {
 
 	@Then("the credit card information is needed to complete the order")
 	public void the_credit_card_information_is_needed_to_complete_the_order() {
-		try {
 			var alertText = placeOrderPage.alertTextValidation();
 			softAssertions.assertThat(alertText).isBlank();
-		} catch (UnhandledAlertException e) {
-			e.fillInStackTrace();
-		}
 	}
 
 }

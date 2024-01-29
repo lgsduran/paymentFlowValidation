@@ -44,8 +44,7 @@ public class SeleniumFunctions {
 				.pollingEvery(ofSeconds(2))
 				.ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class)
-				.until(new WaitForPage(getWait()));
-		
+				.until(new WaitForPage(getWait()));		
 	}
 
 	class WaitForPage implements ExpectedCondition<Boolean> {
