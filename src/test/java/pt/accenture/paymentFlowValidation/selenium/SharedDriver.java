@@ -20,9 +20,8 @@ public class SharedDriver {
 	private WebDriver createDriver() {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("start-maximized");
-		options.addArguments("disable-infobars");
-		options.addArguments("--headless=new");
+		options.addArguments("start-maximized", "disable-infobars");
+		//options.addArguments("--headless=new");
 		options.setPageLoadStrategy(NONE);
 		driver = new ChromeDriver(options);
 		driver.manage().deleteAllCookies();

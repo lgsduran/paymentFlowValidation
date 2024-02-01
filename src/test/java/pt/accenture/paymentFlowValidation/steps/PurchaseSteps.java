@@ -1,17 +1,17 @@
 package pt.accenture.paymentFlowValidation.steps;
 
+import static org.apache.commons.lang3.StringUtils.substringBetween;
 import static org.junit.Assert.assertTrue;
 
-import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.UnhandledAlertException;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pt.accenture.paymentFlowValidation.base.FlowContext;
+import pt.accenture.paymentFlowValidation.exception.ProductException;
 import pt.accenture.paymentFlowValidation.order.Product;
 import pt.accenture.paymentFlowValidation.pages.CartPage;
 import pt.accenture.paymentFlowValidation.pages.CatalogPage;
@@ -55,7 +55,7 @@ public class PurchaseSteps {
 	}
 
 	@When("I find the {string}")
-	public void i_find_the(String product) {
+	public void i_find_the(String product) throws ProductException {
 		catalogPage.selectProduct(product);
 	}
 
@@ -116,21 +116,21 @@ public class PurchaseSteps {
 				.getDriver().findElement(By.cssSelector(".sweet-alert p"))
 				.getText();
 		product.setPurchase(text);
-		String id = StringUtils.substringBetween(text, "Id:", "Amount:").trim();
+		String id = substringBetween(text, "Id:", "Amount:").trim();
 		softAssertions.assertThat(id).isNotEmpty();
 	}
 
 	@And("the amount paid is equal the expected")
 	public void the_amount_paid_is_equal_the_expected() {
 		String amount = product.getPurchase();
-		String resultAmount = StringUtils.substringBetween(amount, "Amount:", "USD").trim();
+		String resultAmount = substringBetween(amount, "Amount:", "USD").trim();
 		softAssertions.assertThat(resultAmount).isEqualTo(1100);
 	}
 
 	@And("The displayed name is equal to the mocked information")
 	public void the_displayed_name_is_equal_to_the_mocked_information() {
 		var client = product.getPurchase();
-		var resultClient = StringUtils.substringBetween(client, "Name:", "Date").trim();
+		var resultClient = substringBetween(client, "Name:", "Date").trim();
 		softAssertions.assertThat(product.getClient()).isEqualToIgnoringCase(resultClient);
 	}
 
