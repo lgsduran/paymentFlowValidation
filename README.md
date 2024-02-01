@@ -17,7 +17,8 @@ QA Test Assessment
 ## How to run the project
 
 1. Prerequisite: Have maven installed on you computer. In case you do not, click **[here](https://mkyong.com/maven/how-to-install-maven-in-windows/)** to install it on Windows.
-2. Execute the CLI: mvn test -Dcucumber.options="--tags @order"
+2. Execute the CLI: mvn test -Dcucumber.filter.tags="@order"
+3. Screenshots are to be saved in the folder screenshot which is the project's root path. Example: ~\paymentFlowValidation\screenshot
 
 ## Copyright
 
