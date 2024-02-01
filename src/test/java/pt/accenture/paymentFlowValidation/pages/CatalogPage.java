@@ -29,7 +29,8 @@ public class CatalogPage {
 		WebElement body = sf.getElement(id("tbodyid"));
 		List<WebElement> articles = body.findElements(cssSelector("h4"));
 
-		Optional<WebElement> articleFiltered = articles.stream()
+		Optional<WebElement> articleFiltered = articles
+				.stream()
 				.filter(article -> equalsIgnoreCase(article.getText().trim(), product))
 				.findFirst();
 
