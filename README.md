@@ -11,7 +11,7 @@ QA Test Assessment
 - [Maven](https://maven.apache.org)
 - [Cucumber](https://cucumber.io/)
 - [Selenium WebDriver](https://www.selenium.dev/)
-- [WebDriverManager - Chrome Headless](https://bonigarcia.dev/webdrivermanager/)
+- [WebDriverManager - Chrome Browser](https://bonigarcia.dev/webdrivermanager/)
 - [JUnit 4](https://cucumber.io/docs/cucumber/api/?lang=java#junit)
 
 ## How to run the project
