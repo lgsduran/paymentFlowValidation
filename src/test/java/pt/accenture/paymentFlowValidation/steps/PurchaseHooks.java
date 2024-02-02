@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
-import pt.accenture.paymentFlowValidation.base.FlowContext;
+import pt.accenture.paymentFlowValidation.context.FlowContext;
 
 public class PurchaseHooks {
 

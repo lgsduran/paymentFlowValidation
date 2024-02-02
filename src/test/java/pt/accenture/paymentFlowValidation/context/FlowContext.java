@@ -1,7 +1,7 @@
-package pt.accenture.paymentFlowValidation.base;
+package pt.accenture.paymentFlowValidation.context;
 
+import pt.accenture.paymentFlowValidation.base.SharedDriver;
 import pt.accenture.paymentFlowValidation.manager.PageObjectManager;
-import pt.accenture.paymentFlowValidation.selenium.SharedDriver;
 
 public class FlowContext {
 

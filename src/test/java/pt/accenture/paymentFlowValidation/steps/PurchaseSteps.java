@@ -10,7 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pt.accenture.paymentFlowValidation.base.FlowContext;
+import pt.accenture.paymentFlowValidation.context.FlowContext;
 import pt.accenture.paymentFlowValidation.exception.ProductException;
 import pt.accenture.paymentFlowValidation.order.Product;
 import pt.accenture.paymentFlowValidation.pages.CartPage;

@@ -1,4 +1,4 @@
-package pt.accenture.paymentFlowValidation.selenium;
+package pt.accenture.paymentFlowValidation.base;
 
 import static org.openqa.selenium.PageLoadStrategy.NONE;
 
