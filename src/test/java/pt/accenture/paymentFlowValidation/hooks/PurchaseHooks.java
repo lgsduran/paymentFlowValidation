@@ -1,4 +1,4 @@
-package pt.accenture.paymentFlowValidation.steps;
+package pt.accenture.paymentFlowValidation.hooks;
 
 import static java.io.File.separator;
 import static java.lang.String.format;
