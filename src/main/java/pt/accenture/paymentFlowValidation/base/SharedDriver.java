@@ -22,11 +22,13 @@ public class SharedDriver {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments
 		(
+		"--no-sandbox",
 		"start-maximized", 
 		"disable-infobars",
 		"--disable-dev-shm-usage",
 		"--headless=new"
 		);
+		options.setBinary("/usr/bin/google-chrome");
 		options.setPageLoadStrategy(NONE);
 		driver = new ChromeDriver(options);
 		driver.manage().deleteAllCookies();
