@@ -1,9 +1,9 @@
-docker-compose up --build jenkins -d
+docker-compose up --build pipeline -d
 docker container ls
 docker container exec -it <container id> bash
 
 **Access terminal as root**
-docker container exec -u 0 -it <container id> bash
+docker container exec -u 0 -it megatron bash
 
 git add . && git commit -m "docker" && git push
 docker build -t 'java_test25' .
