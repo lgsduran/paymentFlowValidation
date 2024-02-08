@@ -3,7 +3,7 @@ pipeline {
 
     parameters {        
         choice (
-        name: 'TAGS',
+        name: 'TAG',
         choices: ['@order', '@positive', '@negative'],
         description: 'Choose the tags.'
         )
