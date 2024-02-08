@@ -16,7 +16,7 @@ pipeline {
     stages { 
         stage('Testing') {           
             steps {
-                sh "mvn test -Dcucumber.filter.tags=${\"params.TAG\"}"
+                sh "mvn test -Dcucumber.filter.tags=${\\"params.TAG\\"}"
             }                
         }     
     }
