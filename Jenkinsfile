@@ -1,6 +1,3 @@
-import java.util.Calendar;
-import java.util.TimeZone;
-
 pipeline {  
     agent any
 
@@ -44,13 +41,11 @@ pipeline {
     }
 }
 
-def CreateZipFile(timeStamp){
+def CreateZipFile(){
     echo 'building project-a'
     sh 'mvn -B -DskipTests clean package'
     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-    zip zipFile: "../screenshot_"+timeStamp+".zip", archive: true, dir: "."
+    zip zipFile: "../screenshot_"+Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST')+".zip", archive: true, dir: "."
 }
-
- def timeStamp = Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST'));
 
 
