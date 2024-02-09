@@ -47,8 +47,9 @@ def CreateZipFile(){
     def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss',TimeZone.getTimeZone('CST'));
     def archiveDir = "screenshot_$timeStamp";
     echo archiveDir
-    dir("${archiveDir}") {
-        sh 'cp -f /screenshot/* /screenshot_*'
-        zip zipFile: "${archiveDir}.zip", archive: true
-    }
+    //dir("${archiveDir}") {        
+        //sh 'cp -f /screenshot/* /screenshot_*'
+        //zip zipFile: "${archiveDir}.zip", archive: true
+        zip zipFile: "${/screenshot/}.zip", archive: true
+    //}
 }
