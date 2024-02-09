@@ -11,7 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SharedDriver {
 	private WebDriver driver;
-	private final String strOsName = System.getProperty("os.name");
+	private final String isLinux = System.getProperty("os.name");
 	
 	public WebDriver getDriver() {
 		if (driver == null)
@@ -31,8 +31,8 @@ public class SharedDriver {
 			"--headless=new"
 		);
 
-		System.out.println(String.format("Current OS is: '%s'", strOsName));
-		if(StringUtils.endsWithIgnoreCase(strOsName, "linux"))
+		System.out.println(String.format("Current OS is: '%s'", isLinux));
+		if(StringUtils.endsWithIgnoreCase(isLinux, "linux"))
 			options.setBinary("/usr/bin/google-chrome");
 
 		options.setPageLoadStrategy(NONE);
