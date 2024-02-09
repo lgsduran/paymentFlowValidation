@@ -1,4 +1,7 @@
-pipeline {   
+import java.util.Calendar;
+import java.util.TimeZone;
+
+pipeline {  
     agent any
 
     parameters {        
@@ -45,7 +48,6 @@ def CreateZipFile(timeStamp){
     echo 'building project-a'
     sh 'mvn -B -DskipTests clean package'
     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-
     zip zipFile: "../screenshot_"+timeStamp+".zip", archive: true, dir: "."
 }
 
