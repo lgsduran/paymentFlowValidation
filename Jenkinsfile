@@ -48,7 +48,7 @@ def CreateZipFile(){
     def dest = "screenshot_$timeStamp";
     echo dest
     dir("${archiveDir}") {        
-        sh 'cp -f ../screenshot/* $dest'
-        zip zipFile: "${archiveDir}.zip", archive: true 
+        sh "cp -f ../screenshot/* \"${archiveDir}\""
+        zip zipFile: "${archiveDir}.zip", archive: true
     }
 }
