@@ -46,6 +46,8 @@ def CreateZipFile(){
     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
     def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss',TimeZone.getTimeZone('CST'));
     def archiveDir = "screenshot_$timeStamp";
-    sh 'mkdir $archiveDir'
-    zip zipFile: "$archiveDir.zip", archive: true, dir: "."
+    echo archiveDir
+    dir("${archiveDir}") {
+        zip zipFile: "$archiveDir.zip", archive: true
+    }
 }
