@@ -48,6 +48,6 @@ def CreateZipFile(){
     def archiveDir = "screenshot_$timeStamp";
     echo archiveDir
     dir("${archiveDir}") {
-        zip zipFile: "$archiveDir.zip", archive: true
+        zip zipFile: "${archiveDir}.zip", archive: true
     }
 }
