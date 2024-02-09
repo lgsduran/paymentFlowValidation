@@ -24,7 +24,7 @@ pipeline {
     post {
         always {
             echo 'One way or another, I have finished'
-            CreateZipFile(timeStamp)
+            CreateZipFile();
         }
         success {
             echo 'I succeeded!'
@@ -40,10 +40,10 @@ pipeline {
         }
     }
 }
-def CreateZipFile(timeStamp){
+def CreateZipFile(){
     echo 'building project-a'
     sh 'mvn -B -DskipTests clean package'
     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+    def timeStamp = Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST'));
     zip zipFile: "../screenshot_"+timeStamp+".zip", archive: true, dir: "."
 }
- def timeStamp = Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST'));
