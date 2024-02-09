@@ -1,5 +1,4 @@
-pipeline {
-    def timeStamp = Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST'));
+pipeline {   
     agent any
 
     parameters {        
@@ -49,5 +48,7 @@ def CreateZipFile(timeStamp){
 
     zip zipFile: "../screenshot_"+timeStamp+".zip", archive: true, dir: "."
 }
+
+ def timeStamp = Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST'));
 
 
