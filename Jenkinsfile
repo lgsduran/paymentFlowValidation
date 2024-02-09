@@ -50,7 +50,7 @@ def CreateZipFile(){
     def dest=archiveDir
     echo archiveDir
     dir("${archiveDir}") {        
-        cp -f $src $dest
+        sh 'cp -f $src $dest'
         zip zipFile: "${archiveDir}.zip", archive: true        
     }
 }
