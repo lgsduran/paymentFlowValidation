@@ -39,7 +39,7 @@ pipeline {
             echo 'Things were different before...'
         }
     }
-
+}
 def CreateZipFile(timeStamp){
     echo 'building project-a'
     sh 'mvn -B -DskipTests clean package'
@@ -47,4 +47,3 @@ def CreateZipFile(timeStamp){
     zip zipFile: "../screenshot_"+timeStamp+".zip", archive: true, dir: "."
 }
  def timeStamp = Calendar.getInstance().getTime().format('YYYYMMdd-hhmmss',TimeZone.getTimeZone('CST'));
-}
