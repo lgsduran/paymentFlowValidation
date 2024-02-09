@@ -46,10 +46,10 @@ def CreateZipFile(){
     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
     def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss',TimeZone.getTimeZone('CST'));
     def target = "screenshot_$timeStamp";
-    echo target
     dir("${target}") {        
         sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}"
         //Files.copy("${env.WORKSPACE}/screenshot/*", target)
         zip zipFile: "${target}.zip", archive: true
+        deleteDir("../screenshot/")
     }
 }
