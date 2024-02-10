@@ -24,8 +24,8 @@ pipeline {
   post {
     always {
       echo 'One way or another, it has finished'
-      CreateZipFile();
-      dir("../screenshot/") {
+      createZipFile();
+      dir("screenshot") {
         deleteDir();
       }
     }
@@ -43,7 +43,7 @@ pipeline {
     }
   }
 }
-def CreateZipFile() {
+def createZipFile() {
   echo 'building project-a'
   sh 'mvn -B -DskipTests clean package'
   archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
