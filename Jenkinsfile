@@ -52,5 +52,6 @@ def createZipFile() {
   dir("${target}") {
     sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
     zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
+    deleteDir();
   }
 }
