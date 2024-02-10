@@ -52,7 +52,7 @@ def createZipFile() {
   dir("${target}") {
     sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
     zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
-    archiveArtifacts artifacts: "${env.WORKSPACE}/${target}.zip", fingerprint: true;
+
     deleteDir();
   }
 }
