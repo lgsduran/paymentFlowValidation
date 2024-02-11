@@ -47,7 +47,7 @@ def createZipFile() {
   echo 'building project-a'
   sh 'mvn -B -DskipTests clean package'
   archiveArtifacts artifacts: 'target/*.jar', fingerprint: true;
-  def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('CST'));
+  def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('UTC'));
   def target = "screenshot_$timeStamp";
   dir("${target}") {
     sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
