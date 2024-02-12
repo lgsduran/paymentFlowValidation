@@ -43,16 +43,18 @@ pipeline {
     }
   }
 }
+
 def createZipFile() {
-  echo 'building project-a'
   sh 'mvn -B -DskipTests clean package'
-  archiveArtifacts artifacts: 'target/*.jar', fingerprint: true;
   def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('UTC'));
   def target = "screenshot_$timeStamp";
   dir("${target}") {
-    sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
-    zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
-
+    //sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
+    sh "cp -f ../screenshot/* ../${target}";
+    def zipName = '${target}.zip'
+    //zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
+    zip zipFile: zipName, archive: true;
+    archiveArtifacts artifacts: 'target/*.jar, ${zipName}', fingerprint: true;
     deleteDir();
   }
 }
