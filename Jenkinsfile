@@ -53,7 +53,7 @@ def createZipFile() {
     echo "target is ${timeStamp}."
     sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
     zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
-    archiveArtifacts artifacts: "${env.WORKSPACE}/${target}".zip, fingerprint: true;
+    archiveArtifacts artifacts: "${env.WORKSPACE}/${target}.zip", fingerprint: true;
     deleteDir();
   }
 }
