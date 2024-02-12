@@ -55,5 +55,5 @@ def createZipFile() {
     zip zipFile: "${env.WORKSPACE}/${dest}.zip", archive: true;
     //deleteDir();
   }
-  archiveArtifacts artifacts: "${env.WORKSPACE}/${dest}.zip", fingerprint: true;
+  archiveArtifacts artifacts: "${dest}.zip", fingerprint: true;
 }
