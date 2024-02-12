@@ -30,12 +30,12 @@ public class CatalogPage {
 		WebElement body = sf.getElement(id("tbodyid"));
 		List<WebElement> articles = body.findElements(cssSelector("h4"));
 
-		Optional<WebElement> articleFiltered = articles
+		Optional<WebElement> filteredArticle = articles
 				.stream()
 				.filter(article -> equalsIgnoreCase(article.getText().trim(), product))
 				.findFirst();
 
-		if (articleFiltered.isEmpty()) {
+		if (filteredArticle.isEmpty()) {
 			try {
 				sf.getElement(cssSelector("#next2")).click();
 				this.selectProduct(product);				
@@ -44,7 +44,7 @@ public class CatalogPage {
 			}		
 		}
 
-		articleFiltered.get().click();
+		filteredArticle.get().click();
 
 	}
 
