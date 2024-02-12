@@ -14,14 +14,14 @@ pipeline {
   }
 
   stages {
-    stage('Build') {
+    /*stage('Build') {
             steps {
                 // Clean before build
                 cleanWs()
                 // We need to explicitly checkout from SCM here
                 checkout scm
                 echo "Building ${env.JOB_NAME}..."
-            }
+            }*/
     }
     stage('Testing') {
       steps {

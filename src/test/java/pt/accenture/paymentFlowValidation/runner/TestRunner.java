@@ -13,7 +13,8 @@ import io.cucumber.junit.CucumberOptions;
 			tags =  "@order",
 			plugin = {
 				"json:target/cucumber.json", "pretty",
-				"html:target/cucumber-reports" }
+				"html:target/cucumber-reports" 
+			}
 		)
 public class TestRunner {
 
