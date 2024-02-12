@@ -1,8 +1,9 @@
 package pt.accenture.paymentFlowValidation.base;
 
+import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.endsWithIgnoreCase;
 import static org.openqa.selenium.PageLoadStrategy.NONE;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -31,8 +32,8 @@ public class SharedDriver {
 			"--headless=new"
 		);
 
-		System.out.println(String.format("Current OS is: '%s'", isLinux));
-		if(StringUtils.endsWithIgnoreCase(isLinux, "linux"))
+		System.out.println(format("Current OS is: '%s'", isLinux));
+		if(endsWithIgnoreCase(isLinux, "linux"))
 			options.setBinary("/usr/bin/google-chrome");
 
 		options.setPageLoadStrategy(NONE);

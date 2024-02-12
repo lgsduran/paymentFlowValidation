@@ -8,6 +8,7 @@ import static org.openqa.selenium.By.id;
 import java.util.List;
 import java.util.Optional;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -34,8 +35,14 @@ public class CatalogPage {
 				.filter(article -> equalsIgnoreCase(article.getText().trim(), product))
 				.findFirst();
 
-		if (articleFiltered.isEmpty())
-			throw new ProductException(format("Product %s was not found!", product));
+		if (articleFiltered.isEmpty()) {
+			try {
+				sf.getElement(cssSelector("#next2")).click();
+				this.selectProduct(product);				
+			} catch (StaleElementReferenceException ser) {
+				throw new ProductException(format("Product %s was not found!", product));	
+			}		
+		}
 
 		articleFiltered.get().click();
 
