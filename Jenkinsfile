@@ -68,4 +68,5 @@ def createZipFile() {
     dir("${dest}") {
         deleteDir();
     }
+    sh "rm -fv *.zip"
 }
