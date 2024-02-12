@@ -48,11 +48,11 @@ def createZipFile() {
   sh 'mvn -B -DskipTests clean package'
   def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('UTC'));
   def target = 'screenshot_${timeStamp}';
-  echo "target is ${timeStamp}."
   archiveArtifacts artifacts: 'target/*.jar', fingerprint: true;
-  dir("${target}") {
-    bash 'cp -f ../screenshot/* ${env.WORKSPACE}/${target}';
-    zip zipFile: '${env.WORKSPACE}/${target}.zip', archive: true;
+  dir("${target}") { 
+    echo "target is ${timeStamp}."
+    sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
+    zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
     archiveArtifacts artifacts: '${env.WORKSPACE}/${target}.zip', fingerprint: true;
     deleteDir();
   }
