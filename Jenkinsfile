@@ -46,10 +46,8 @@ pipeline {
 
 def createZipFile() {
   sh 'mvn -B -DskipTests clean package'
-  def now = new Date()
-  //println now.format("ddMMYYYY_hhmmss", TimeZone.getTimeZone('UTC'))
-  //def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('UTC'));
-  def timeStamp = now.format("ddMMYYYY_hhmmss", TimeZone.getTimeZone('UTC'));
+  def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('UTC'));
+  sh 'echo "timeStamp is ${timeStamp}."'
   def target = 'screenshot_$timeStamp';
   archiveArtifacts artifacts: 'target/*.jar', fingerprint: true;
   dir("${target}") {
