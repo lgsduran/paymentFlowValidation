@@ -10,7 +10,10 @@ import io.cucumber.junit.CucumberOptions;
 		(
 			features = "src/test/resources/features",
 			glue = {"pt.accenture.paymentFlowValidation.hooks", "pt.accenture.paymentFlowValidation.steps"},
-			tags =  "@order"
+			tags =  "@order",
+			plugin = {
+				"json:target/cucumber.json", "pretty",
+				"html:target/cucumber-reports" }
 		)
 public class TestRunner {
 

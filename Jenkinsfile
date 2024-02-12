@@ -33,6 +33,7 @@ pipeline {
   post {
     always {
       echo 'One way or another, it has finished'
+      cucumber buildStatus: 'UNCHANGED', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: 'target/cucumber.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
       createZipFile();
       dir("screenshot") {
         deleteDir();
