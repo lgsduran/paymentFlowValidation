@@ -60,7 +60,6 @@ def createZipFile() {
   def dest = "screenshot_${timeStamp}";
   archiveArtifacts artifacts: 'target/*.jar', fingerprint: true;
   dir("${dest}") { 
-    echo "dest is ${timeStamp}."
     sh "cp -f ../screenshot/* ${env.WORKSPACE}/${dest}";
     zip zipFile: "${env.WORKSPACE}/${dest}.zip", archive: true;
   }
