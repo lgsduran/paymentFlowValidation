@@ -21,8 +21,8 @@ pipeline {
                 // We need to explicitly checkout from SCM here
                 checkout scm
                 echo "Building ${env.JOB_NAME}..."
-            }*/
-    }
+            }
+    }*/
     stage('Testing') {
       steps {
         sh "mvn test -Dcucumber.filter.tags=${params.TAG}"
