@@ -12,7 +12,8 @@ import io.cucumber.junit.CucumberOptions;
 			glue = {"pt.accenture.paymentFlowValidation.hooks", "pt.accenture.paymentFlowValidation.steps"},
 			tags =  "@order",
 			plugin = {
-				"json:target/cucumber.json", "pretty",
+				"json:target/cucumber.json", 
+				"pretty",
 				"html:target/cucumber-reports" 
 			}
 		)
