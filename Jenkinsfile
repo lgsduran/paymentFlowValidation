@@ -47,13 +47,13 @@ pipeline {
 def createZipFile() {
   sh 'mvn -B -DskipTests clean package'
   def timeStamp = Calendar.getInstance().getTime().format('ddMMYYYY_hhmmss', TimeZone.getTimeZone('UTC'));
-  def target = "screenshot_${timeStamp}";
+  def dest = "screenshot_${timeStamp}";
   archiveArtifacts artifacts: 'target/*.jar', fingerprint: true;
-  dir("${target}") { 
-    echo "target is ${timeStamp}."
-    sh "cp -f ../screenshot/* ${env.WORKSPACE}/${target}";
-    zip zipFile: "${env.WORKSPACE}/${target}.zip", archive: true;
-    archiveArtifacts artifacts: "../${target}.zip", fingerprint: true;
+  dir("${dest}") { 
+    echo "dest is ${timeStamp}."
+    sh "cp -f ../screenshot/* ${env.WORKSPACE}/${dest}";
+    zip zipFile: "${env.WORKSPACE}/${dest}.zip", archive: true;
+    archiveArtifacts artifacts: "/${dest}.zip", fingerprint: true;
     deleteDir();
   }
 }
