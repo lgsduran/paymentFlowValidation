@@ -27,5 +27,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Remove Chrome
+      run: sudo apt purge google-chrome-stable
+    - name: Remove default Chromium
+      run: sudo apt purge chromium-browser
+    - name: Install Google Chrome 
+      run: chmod +x ./repository.sh
     - name: Build with Maven
       run: mvn test -Dcucumber.filter.tags="@order"
