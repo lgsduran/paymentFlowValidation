@@ -19,9 +19,9 @@ on:
         type: choice
         description: Select the tag.
         options:
-        - "@order"
-        - "@positive"
-        - "@negative"
+        - order
+        - positive
+        - negative
 
 jobs:
   build:
