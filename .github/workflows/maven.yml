@@ -44,4 +44,4 @@ jobs:
       #if: failure()
       with:
         name: screenshot
-        path: paymentFlowValidation/paymentFlowValidation/screenshot/
+        path: /home/runner/work/paymentFlowValidation/paymentFlowValidation/screenshot
