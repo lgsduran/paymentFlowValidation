@@ -48,6 +48,8 @@ jobs:
         sudo ./scripts/installChrome.sh
     - name: Build with Maven
       run: mvn test -Dcucumber.filter.tags=${{github.event.inputs.choice}}
+    - name: greet
+      run: echo "choice is ${{ github.event.inputs.choice }}" / ${{ inputs.choice }}
     - name: Upload screenshots
       uses: actions/upload-artifact@v4
       #if: failure()
