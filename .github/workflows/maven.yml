@@ -39,3 +39,9 @@ jobs:
         sudo ./scripts/installChrome.sh
     - name: Build with Maven
       run: mvn test -Dcucumber.filter.tags="@order"
+    - name: Upload screenshots
+      uses: actions/upload-artifact@latest
+      #if: failure()
+      with:
+        name: screenshot
+        path: paymentFlowValidation/screenshot
