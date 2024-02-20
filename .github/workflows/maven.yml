@@ -44,4 +44,4 @@ jobs:
       #if: failure()
       with:
         name: screenshot
-        path: paymentFlowValidation/screenshot
+        path: paymentFlowValidation/paymentFlowValidation/screenshot/
