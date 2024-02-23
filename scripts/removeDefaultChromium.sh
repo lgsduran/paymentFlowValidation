@@ -1,3 +1,3 @@
 #!/bin/sh
-sudo apt purge google-chrome-stable
-sudo apt purge chromium-browser
+apt purge google-chrome-stable
+apt purge chromium-browser
