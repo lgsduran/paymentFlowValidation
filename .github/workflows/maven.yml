@@ -36,12 +36,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Remove node.js
-      run: sudo apt-get purge nodejs
-    - name: Remove Chrome
-      run: sudo apt purge google-chrome-stable
     - name: Remove default Chromium
-      run: sudo apt purge chromium-browser
+      run: | 
+        sudo chmod +x ./scripts/removeDefaultChromium.sh
+        sudo ./scripts/removeDefaultChromium.sh
     - name: Install Google Chrome 
       run: |
         sudo chmod +x ./scripts/installChrome.sh
