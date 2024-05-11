@@ -1,6 +1,7 @@
 docker-compose up --build pipeline -d
 docker container ls
 docker container exec -it <container id> bash
+docker system prune -a --volumes -f
 
 **Access terminal as root**
 docker container exec -u 0 -it megatron bash
