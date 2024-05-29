@@ -3,6 +3,7 @@ docker container ls
 docker container exec -it <container id> bash
 docker system prune -a --volumes -f
 COMPOSE_PROFILES=db docker-compose -f docker-compose-dind.yml up -d
+docker run --network=jenkins_pipeline customer-api-server
 
 **Access terminal as root**
 docker container exec -u 0 -it megatron bash
