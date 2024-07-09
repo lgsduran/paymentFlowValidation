@@ -20,7 +20,7 @@ import pt.accenture.paymentFlowValidation.context.FlowContext;
 
 public class PurchaseHooks {
 
-	FlowContext context;
+	private FlowContext context;
 
 	/**
 	 * @param context
