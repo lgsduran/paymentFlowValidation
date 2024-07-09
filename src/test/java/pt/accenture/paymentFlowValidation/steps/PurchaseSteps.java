@@ -20,12 +20,12 @@ import pt.accenture.paymentFlowValidation.pages.PlaceOrderPage;
 
 public class PurchaseSteps {
 
-	FlowContext context;
+	private FlowContext context;
 
-	CartPage cartPage;
-	CatalogPage catalogPage;
-	IndexPage indexPage;
-	PlaceOrderPage placeOrderPage;
+	private CartPage cartPage;
+	private CatalogPage catalogPage;
+	private IndexPage indexPage;
+	private PlaceOrderPage placeOrderPage;
 
 	private Product product = new Product();
 
